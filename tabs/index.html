@@ -1,0 +1,12 @@
+<tabs: nonvoid>
+  <ul class="nav nav-tabs">
+    {#each :self.tabs}
+      <li class="{#if equal(this, :self.activeTab)}active{/}">
+        <a x-bind="click: clickTab">{.title}</a>
+      </li>
+    {/}
+  </ul>
+
+  <div class="tab-content">
+    {{{content}}}
+  </div>
