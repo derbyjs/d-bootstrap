@@ -1,11 +1,9 @@
-// self is a scoped model underneath _$component.{uid}
-
-// Components with scripts must export a create function, which
-// only runs in the browser
-exports.create = function(self, dom) {
+// The create function is called after the component is created
+// and has been added to the DOM. It only runs in the browser
+exports.create = function(model, dom) {
   var toggle = dom.element('toggle')
     , menu = dom.element('menu')
-    , open = self.at('open')
+    , open = model.at('open')
 
   // Listeners added inside of a component are removed when the
   // page is re-rendered client side
@@ -14,22 +12,22 @@ exports.create = function(self, dom) {
     open.set(false)
   })
 
-  exports.clickToggle = function() {
+  this.clickToggle = function() {
     open.set(!open.get())
   }
 
-  exports.clickMenu = function(e) {
-    var item = self.at(e.target)
+  this.clickMenu = function(e) {
+    var item = model.at(e.target)
       , value = item.get().text
     open.set(false)
     if (value != null) {
-      self.set('value', value)
+      model.set('value', value)
     }
   }
 }
 
-// Components may export an init function, which runs on both
-// the server and browser before rendering
-exports.init = function(self) {
-  self.setNull('value', self.get('items.0.text'))
+// The init function is called on both the server and browser
+// before rendering
+exports.init = function(model) {
+  model.setNull('value', model.get('items.0.text'))
 }

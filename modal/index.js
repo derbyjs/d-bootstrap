@@ -1,8 +1,8 @@
-exports.create = function(self, dom) {
+exports.create = function(model, dom) {
   function close(button) {
-    var cancelled = self.trigger('close', button)
+    var cancelled = model.trigger('close', button)
     if (cancelled) return
-    self.set('show', false)
+    model.set('show', false)
   }
 
   dom.addListener(document, 'keydown', function(e) {
@@ -11,7 +11,7 @@ exports.create = function(self, dom) {
     }
   })
 
-  exports.click = function(e) {
+  this.click = function(e) {
     var button = e.target.getAttribute('data-button')
     if (button) close(button)
   }

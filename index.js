@@ -5,7 +5,6 @@ var config = {
 , scripts: {
     dropdown: require('./dropdown')
   , modal: require('./modal')
-  , tab: require('./tab')
   , tabs: require('./tabs')
   }
 }
