@@ -6,6 +6,7 @@ var config = {
     dropdown: require('./dropdown')
   , modal: require('./modal')
   , tabs: require('./tabs')
+  , tab: {}
   }
 }
 
