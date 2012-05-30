@@ -1,9 +1,9 @@
 <modal: nonvoid>
   <div x-bind="click: click" style="{{{#unless show}}}display:none{{{/}}}">
-    <div data-button="backdrop" class="modal-backdrop"></div>
+    <div data-action="backdrop" class="modal-backdrop"></div>
     <div class="modal">
       <div class="modal-header">
-        <button data-button="close" class="close">×</button>
+        <button data-action="close" class="close">×</button>
         <h3>{{{title}}}</h3>
       </div>
       <div class="modal-body">
@@ -11,10 +11,10 @@
       </div>
       <div class="modal-footer">
         {{{#if close}}}
-          <a data-button="close" class="btn">{{{close}}}</a>
+          <a data-action="close" class="btn">{{{close}}}</a>
         {{{/}}}
         {{{#if primary}}}
-          <a data-button="primary" class="btn btn-primary">{{{primary}}}</a>
+          <a data-action="primary" class="btn btn-primary">{{{primary}}}</a>
         {{{/}}}
       </div>
     </div>
