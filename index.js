@@ -15,13 +15,16 @@ boot.decorate = 'derby'
 
 function boot(derby, options) {
   var outConfig = Object.create(config)
-    , styles = options && options.styles
-    , outStyles, i, len, style
+    , styles, outStyles, i, len, style
 
-  if (styles) {
-    outStyles = []
-    for (i = 0, len = styles.length; i < len; i++) {
-      outStyles.push(lessRoot + styles[i]) 
+  if (options && 'styles' in options) {
+    styles = options.styles
+    if (typeof styles === 'string') styles = [styles]
+    if (Array.isArray(styles)) {
+      outStyles = []
+      for (i = 0, len = styles.length; i < len; i++) {
+        outStyles.push(lessRoot + styles[i]) 
+      }
     }
   } else {
     outStyles = lessRoot + 'bootstrap'
