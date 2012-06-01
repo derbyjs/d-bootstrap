@@ -1,3 +1,7 @@
+function optionValue(option) {
+  return ('value' in option) ? option.value : option.text
+}
+
 // The create function is called after the component is created
 // and has been added to the DOM. It only runs in the browser
 exports.create = function(model, dom) {
@@ -17,17 +21,29 @@ exports.create = function(model, dom) {
   }
 
   this.clickMenu = function(e) {
-    var item = model.at(e.target)
-      , value = item.get().text
+    var option = model.at(e.target).get()
     open.set(false)
-    if (value != null) {
-      model.set('value', value)
-    }
+    if (!('text' in option)) return
+    model.set('value', optionValue(option))
+    model.set('text', option.text)
   }
 }
 
 // The init function is called on both the server and browser
 // before rendering
 exports.init = function(model) {
-  model.setNull('value', model.get('items.0.text'))
+  var value = model.get('value')
+    , options = model.get('options')
+    , i, len, option, text
+  if (!options) return
+  for (i = 0, len = options.length; i < len; i++) {
+    option = options[i]
+    if (optionValue(option) !== value) continue
+    model.set('text', option.text)
+    return
+  }
+  option = options[0]
+  value = optionValue(option)
+  model.set('value', value)
+  model.set('text', option.text)
 }
