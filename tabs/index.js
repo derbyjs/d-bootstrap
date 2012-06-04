@@ -2,11 +2,7 @@ exports.init = function(model) {
   var tabs = model.at('tabs')
     , current = model.at('current')
 
-  // TODO: This should be happening on 'init:child' so that it
-  // renders properly on the server. However, this doesn't work
-  // right now, because bound items only respond to updates
-  // on the browser.
-  this.on('create:child', function(child) {
+  this.on('init:child', function(child) {
     var childModel = child.model
       , name = childModel.get('name') || tabs.get('length') || 0
       , title = childModel.get('title')
