@@ -3,6 +3,7 @@ exports.init = function(model) {
     , current = model.at('current')
 
   this.on('init:child', function(child) {
+    if (child.type !== 'boot:tab') return
     var childModel = child.model
       , name = childModel.get('name') || tabs.get('length') || 0
       , title = childModel.get('title')

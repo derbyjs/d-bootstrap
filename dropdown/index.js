@@ -5,6 +5,9 @@ exports.create = function(model, dom) {
     , menu = dom.element('menu')
     , open = model.at('open')
 
+  // Make sure the value gets set to the default if unselected
+  updateValue(model, model.get('value'), true)
+
   // Listeners added inside of a component are removed when the
   // page is re-rendered client side
   dom.addListener(document.documentElement, 'click', function(e) {
@@ -17,21 +20,34 @@ exports.create = function(model, dom) {
   }
 
   this.clickMenu = function(e) {
-    var option = model.at(e.target).get()
     open.set(false)
-    // Don't do anything if the "option" clicked is a separator
-    if (!('text' in option)) return
-    model.set('value', optionValue(option))
+    // Don't do anything unless an option was clicked
+    if (e.target.tagName !== 'A') return
+    var item = model.at(e.target)
+      , value = item.get('value')
+    if (value === void 0) value = item.get('text')
+    model.set('value', value)
   }
 }
 
 // The init function is called on both the server and browser
 // before rendering
 exports.init = function(model) {
+  this.on('init:child', function(child) {
+    if (child.type !== 'boot:option') return
+    var childModel = child.model
+    model.at('options').push({
+      value: childModel.get('value')
+    , text: childModel.get('content')
+    })
+
+    updateValue(model, model.get('value'))
+  })
+
   updateValue(model, model.get('value'))
 
   model.on('set', 'value', function(value) {
-    updateValue(model, value)
+    updateValue(model, value, true)
   })
 }
 
@@ -39,18 +55,20 @@ function optionValue(option) {
   return ('value' in option) ? option.value : option.text
 }
 
-function updateValue(model, value) {
+function updateValue(model, value, setValue) {
   var options = model.get('options')
-    , i, len, option, text
+    , i, len, option
   if (!options) return
   for (i = 0, len = options.length; i < len; i++) {
     option = options[i]
     if (optionValue(option) !== value) continue
-    model.set('text', option.text)
+    model.set('label', option.text, null)
     return
   }
   option = options[0]
   value = optionValue(option)
-  model.set('value', value)
-  model.set('text', option.text)
+  if (setValue || value === void 0) {
+    model.set('value', value)
+  }
+  model.set('label', option.text, null)
 }
