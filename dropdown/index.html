@@ -1,8 +1,12 @@
 <dropdown: nonvoid>
   <!-- a :self path alias is automatically created per component -->
+  {{{#if forNavbar}}}
+  <li class="dropdown {#if :self.open}open{/}">
+  {{{else}}}
   <div class="btn-group dropdown {#if :self.open}open{/}">
+  {{{/}}}
     <!-- x-as can be used to pass a reference to an element to the script -->
-    <a x-as="toggle" x-bind="click: toggle" class="btn dropdown-toggle">
+    <a x-as="toggle" x-bind="click: toggle" class="{{{#unless forNavbar}}}btn {{{/}}}dropdown-toggle">
       {:self.label} <span class="caret"></span>
     </a>
     <menu x-as="menu" x-bind="click: _clickMenu" class="dropdown-menu">
@@ -15,7 +19,11 @@
       {{{/}}}
       {{{content}}}
     </menu>
+  {{{#if forNavbar}}}
+  </li>
+  {{{else}}}
   </div>
+  {{{/}}}
 
 <option: nonvoid>
   <li>{#with :self}<a>{{{content}}}</a>{/}</li>
