@@ -3,7 +3,7 @@
 exports.create = function(model, dom) {
   var toggle = dom.element('toggle')
     , menu = dom.element('menu')
-    , open = model.at('open')
+    , open = this.open = model.at('open')
 
   // Make sure the value gets set to the default if unselected
   updateValue(model, model.get('value'), true)
@@ -14,20 +14,6 @@ exports.create = function(model, dom) {
     if (e.target === toggle || menu.contains(e.target)) return
     open.set(false)
   })
-
-  this.clickToggle = function() {
-    open.set(!open.get())
-  }
-
-  this.clickMenu = function(e) {
-    open.set(false)
-    // Don't do anything unless an option was clicked
-    if (e.target.tagName !== 'A') return
-    var item = model.at(e.target)
-      , value = item.get('value')
-    if (value === void 0) value = item.get('text')
-    model.set('value', value)
-  }
 }
 
 // The init function is called on both the server and browser
@@ -49,6 +35,20 @@ exports.init = function(model) {
   model.on('set', 'value', function(value) {
     updateValue(model, value, true)
   })
+}
+
+exports.toggle = function() {
+  this.open.set(!this.open.get())
+}
+
+exports._clickMenu = function(e) {
+  this.open.set(false)
+  // Don't do anything unless an option was clicked
+  if (e.target.tagName !== 'A') return
+  var item = this.model.at(e.target)
+    , value = item.get('value')
+  if (value === void 0) value = item.get('text')
+  this.model.set('value', value)
 }
 
 function optionValue(option) {

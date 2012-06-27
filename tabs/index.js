@@ -1,6 +1,6 @@
 exports.init = function(model) {
-  var tabs = model.at('tabs')
-    , current = model.at('current')
+  var tabs = this.tabs = model.at('tabs')
+    , current = this.current = model.at('current')
 
   this.on('init:child', function(child) {
     if (child.type !== 'boot:tab') return
@@ -8,7 +8,7 @@ exports.init = function(model) {
       , name = childModel.get('name') || tabs.get('length') || 0
       , title = childModel.get('title')
     tabs.push({name: name, title: title, model: childModel})
-    select()
+    this.select()
   })
 
   current.on('set', function(name) {
@@ -20,14 +20,14 @@ exports.init = function(model) {
       tab.model.set('active', tab.name == name)
     }
   })
+}
 
-  function select(name) {
-    if (name == null) name = current.get()
-    if (name == null) name = tabs.get('0.name')
-    current.set(name)
-  }
+exports.select = function(name) {
+  if (name == null) name = this.current.get()
+  if (name == null) name = this.tabs.get('0.name')
+  this.current.set(name)
+}
 
-  this.clickTab = function(e, el) {
-    select(model.at(el).get('name'))
-  }
+exports._clickTab = function(e, el) {
+  this.select(this.model.at(el).get('name'))
 }
