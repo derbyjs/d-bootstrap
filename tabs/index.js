@@ -2,8 +2,8 @@ exports.init = function(model) {
   var tabs = this.tabs = model.at('tabs')
     , current = this.current = model.at('current')
 
-  this.on('init:child', function(child) {
-    if (child.type !== 'boot:tab') return
+  this.on('init:child', function(child, type) {
+    if (type !== 'lib:tab') return
     var childModel = child.model
       , name = childModel.get('name') || tabs.get('length') || 0
       , title = childModel.get('title')

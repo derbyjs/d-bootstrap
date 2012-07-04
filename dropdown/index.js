@@ -19,8 +19,8 @@ exports.create = function(model, dom) {
 // The init function is called on both the server and browser
 // before rendering
 exports.init = function(model) {
-  this.on('init:child', function(child) {
-    if (child.type !== 'boot:option') return
+  this.on('init:child', function(child, type) {
+    if (type !== 'lib:option') return
     var childModel = child.model
     model.at('options').push({
       value: childModel.get('value')
