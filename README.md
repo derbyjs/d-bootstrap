@@ -11,7 +11,7 @@ In your project root:
   
 ##Usage
 
-In `lib/app/js` add: 
+In `lib/app/index.js` add: 
 
     derby.use(require('derby-ui-boot'))
 
