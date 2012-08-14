@@ -41,6 +41,17 @@ In `views/app/index.html`:
       </div>
     {/}
 
+###Adding Responsive-Design
+Derby-UI-Boot lets you pick and choose the Stylesheets you want to add with the `styles` option:
+
+For responsive design, in `lib/app/index.js` add: 
+
+    derby.use(require('derby-ui-boot'),
+      { 'styles': ['bootstrap', 'responsive'] }
+    );
+
+By default, UI-Boot only loads the basic Bootstrap stylesheet. When overriding, make sure you include `bootstrap` stylesheet. The '.less' extention should be omitted.
+
 ##Using Bootstrap JS: 
 
 ###Tabs
