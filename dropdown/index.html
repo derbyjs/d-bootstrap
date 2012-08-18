@@ -3,6 +3,7 @@
   <div class="btn-group dropdown {#if :self.open}open{/}">
     <!-- x-as can be used to pass a reference to an element to the script -->
     <a x-as="toggle" x-bind="click: toggle" class="btn dropdown-toggle">
+      {{{#if icon}}}<i class="icon-{{{icon}}}{{{#if forNavbar}}} icon-white{{{/}}}"></i> {{{/}}}
       {:self.label} <span class="caret"></span>
     </a>
     <menu x-as="menu" x-bind="click: _clickMenu" class="dropdown-menu">
