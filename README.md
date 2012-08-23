@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/codeparty/derby-ui-boot.png)](http://travis-ci.org/codeparty/derby-ui-boot)
 # Derby Boot
 
 A Derby component library based on Twitter Bootstrap.
