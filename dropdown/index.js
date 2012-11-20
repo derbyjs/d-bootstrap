@@ -3,7 +3,6 @@
 exports.create = function(model, dom) {
   var toggle = dom.element('toggle')
     , menu = dom.element('menu')
-    , open = this.open = model.at('open')
 
   // Make sure the value gets set to the default if unselected
   updateValue(model, model.get('value'), true)
@@ -11,8 +10,8 @@ exports.create = function(model, dom) {
   // Listeners added inside of a component are removed when the
   // page is re-rendered client side
   dom.addListener(document.documentElement, 'click', function(e) {
-    if (e.target === toggle || menu.contains(e.target)) return
-    open.set(false)
+    if (toggle.contains(e.target) || menu.contains(e.target)) return
+    model.set('open', false)
   })
 }
 
@@ -38,11 +37,11 @@ exports.init = function(model) {
 }
 
 exports.toggle = function() {
-  this.open.set(!this.open.get())
+  this.model.set('open', !this.model.get('open'))
 }
 
 exports._clickMenu = function(e) {
-  this.open.set(false)
+  this.model.set('open', false)
   // Don't do anything unless an option was clicked
   if (e.target.tagName !== 'A') return
   var item = this.model.at(e.target)
