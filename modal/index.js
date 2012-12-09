@@ -8,6 +8,10 @@ exports.create = function(model, dom) {
   })
 }
 
+exports.show = function() {
+  this.model.set('show', true)
+}
+
 exports.close = function(action) {
   var cancelled = this.emitCancellable('close', action)
   if (!cancelled) this.model.set('show', false)
