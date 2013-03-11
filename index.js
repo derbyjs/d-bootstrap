@@ -6,7 +6,7 @@ var lessRoot = __dirname + '/node_modules/bootstrap/less/'
         dropdown: require('./dropdown')
       , option: require('./dropdown/option')
       , modal: require('./modal')
-      , tabs: require('./tabs')
+      , nav: require('./nav')
       , tab: {}
       }
     }

@@ -47,19 +47,23 @@ In `views/app/index.html`:
 
 In your view:
 
-    <boot:tabs current={currentTab}>
-      <boot:tab title="Overview">
+    <boot:nav current={currentTab} type="tabs">
+      <boot:tab_pane title="Overview">
         <h3>Product Overview</h3>
         ...
-      </boot:tab>
-      <boot:tab title="Details">
+      </boot:tab_pane>
+      <boot:tab_pane title="Details">
         <h3>Details</h3>
         <ul>
           <li>20% stronger</li>
           <li>50% faster than other leading brands.</li>
        </ul>
-      </boot:tab>
-    </boot:tabs>
+      </boot:tab_pane>
+    </boot:nav>
+    <boot:nav type="pills">
+      <boot:pill class="disabled">Action1</boot:pill><!--class not preferred term-->
+      <boot:pill>Action2</boot:pill>
+    </boot:nav>
 
 ## MIT License
 Copyright (c) 2011 by Nate Smith and Brian Noguchi
