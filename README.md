@@ -2,6 +2,12 @@
 
 A Derby component library based on Twitter Bootstrap.
 
+##Development Fork
+
+Not intended for production use, Not intended for package managers
+Broken commits, incomplete implementation, untested code
+you have been warned
+
 ##Installation
 
 
@@ -88,6 +94,11 @@ In your view:
     <boot:page_header headline="headline" subtext="subtext"/>
     <boot:alert>message</boot>
     <boot:alert type="info">something readworthy</boot:alert>
+    <boot:progress value="{:model.value}"/>
+    <boot:media data_src="some.media" heading="heading">descriptive content</boot:media>
+    <boot:media_list>
+      <boot:media_item data_src="some.media" heading="heading">descriptive content</boot:media_item>
+    </boot:media_list>
 
 #### parameters
 
@@ -116,6 +127,17 @@ disabled: bool
 alert
 type: [|error|success|info] empty=warning
 
+progress
+type: [|striped|striped active|info|success|warning|danger]
+
+media
+
+TODO:
+  more complete attributes (see misc section)
+  documentation
+  review / compile
+  demo
+  review for completeness
 
 
 ## MIT License
