@@ -1,0 +1,5 @@
+<alert: nonvoid>
+<div class="alert{#if :self.type} alert-{:self.type}{/}{#if :self.long_text} alert-block{/}">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  {{@content}}
+</div>

@@ -86,6 +86,8 @@ In your view:
     </boot:thumbnails>
     <boot:hero headline="headline" tagline="tagline">more?</boot:hero>
     <boot:page_header headline="headline" subtext="subtext"/>
+    <boot:alert>message</boot>
+    <boot:alert type="info">something readworthy</boot:alert>
 
 #### parameters
 
@@ -110,6 +112,9 @@ nav type==pages
 page
 name: use for consistent naming and accessing link later
 disabled: bool
+
+alert
+type: [|error|success|info] empty=warning
 
 
 
