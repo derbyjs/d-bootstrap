@@ -80,6 +80,8 @@ In your view:
       second page, dont know yet how to template dynamic content
       </boot:page>
     </boot>
+    <boot:hero headline="headline" tagline="tagline">more?</boot:hero>
+    <boot:page_header headline="headline" subtext="subtext"/>
 
 #### parameters
 
