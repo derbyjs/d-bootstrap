@@ -80,6 +80,10 @@ In your view:
       second page, dont know yet how to template dynamic content
       </boot:page>
     </boot>
+    <boot:thumbnails>
+      <boot:thumbnail cell_size="2" data_src="some.image" alt="some image">caption</boot:thumbnail>
+      <boot:thumbnail cell_size="4" data_src="other.image" alt="other image" label="another image">more descriptive catpion</boot:thumbnail>
+    </boot:thumbnails>
     <boot:hero headline="headline" tagline="tagline">more?</boot:hero>
     <boot:page_header headline="headline" subtext="subtext"/>
 

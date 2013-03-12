@@ -1,0 +1,16 @@
+<!-- public: -->
+<thumbnails: nonvoid>
+
+<ul class="thumbnails">
+  {#each :self.thumbnails}
+  <thumbnail:/>
+  {/}
+</ul>
+
+<thumbnail:>
+ <li class="span{.cell_size}">
+  <div class="thumbnail">
+    <img x-bind="click: _select" data-src="{.data_src}" alt="{.alt}">
+    {#if .label}<h3>{.label}</h3>{/}
+    {#if .caption}<p>{.caption}</p>{/}
+  </li>
