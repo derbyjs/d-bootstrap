@@ -1,13 +1,23 @@
 <nav: nonvoid>
+  {if equal(:self.type,'tabs')}
   <ul class="nav nav-tabs">
-    {#each :self.tabs}
+    {#each :self.nav}
       <li class="{#if equal(.name, :self.current)}active{/}">
-        <a x-bind="click: _clickTab">{.title}</a>
+        <a x-bind="click: _clickNav">{.title}</a>
       </li>
     {/}
   </ul>
   <tab_content:/>
+  {/}
+  {if equal(:self.type,'pills')}
+  <ul class="nav nav-pills{if equal(:self.stackable} nav-stackable{/}">
+    {#each :self.nav}
+      <pill:/>
+    {/}
+  </ul>
+  {/}
 
+<!-- tabs -->
 <tab_content: nonvoid>
   <div class="tab-content">
     {{@content}}
@@ -17,3 +27,9 @@
   <div class="tab-pane {#if :self.active}active{/}">
     {{@content}}
   </div>
+
+<!-- pills -->
+<pill: nonvoid>
+<li class="{#if equal(.name, :self.current)}active{/}{# if( equal(.state, "disabled")}disabled{/}">
+  <a x-bind="click: _clickNav">{{@content}}</a>
+</li>

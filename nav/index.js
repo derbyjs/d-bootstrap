@@ -1,14 +1,23 @@
 exports.init = function(model) {
   var nav = this.nav = model.at('nav')
     , current = this.current = model.at('current')
+    , type = this.type = model.get('type')
 
   this.on('init:child', function(child, type) {
-    if (type !== 'lib:tab_content') return
-    var childModel = child.model
-      , name = childModel.get('name') || nav.get('length') || 0
-      , title = childModel.get('title')
-    nav.push({name: name, title: title, model: childModel})
-    this.select()
+    if (type == 'lib:tab_content') {
+      var childModel = child.model
+        , name = childModel.get('name') || nav.get('length') || 0
+        , title = childModel.get('title')
+      nav.push({name: name, title: title, model: childModel})
+      this.select()
+    } else if (type == 'lib:pill') {
+      var childModel = child.model
+        , name = childModel.get('name') || nav.get('length') || 0
+        , state = childModel.get('state')
+      nav.push({name: name, title: title, state: state, model: childModel})
+    } else {
+      return;
+    }
   })
 
   current.on('set', function(name) {
