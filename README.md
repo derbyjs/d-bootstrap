@@ -43,10 +43,10 @@ In `views/app/index.html`:
 
 ##Using Bootstrap JS: 
 
-###Tabs
+###Nav
 
 In your view:
-
+<!-- general navigation -->
     <boot:nav current={currentTab} type="tabs">
       <boot:tab_pane title="Overview">
         <h3>Product Overview</h3>
@@ -61,9 +61,51 @@ In your view:
       </boot:tab_pane>
     </boot:nav>
     <boot:nav type="pills">
-      <boot:pill class="disabled">Action1</boot:pill><!--class not preferred term-->
-      <boot:pill>Action2</boot:pill>
+      <boot:link state="disabled" header="true">link1</boot:link>
+      <boot:link>link2</boot:link>
     </boot:nav>
+    <boot:nav type="list">
+      <boot:link state="disabled" header="true">link1</boot:link>
+      <boot:link_header>another header</boot:link_header>
+      <boot:link>link2</boot:link>
+      <boot:link_divider/>
+    </boot:nav>
+    <boot:nav type="breadcrumb">
+    </boot:nav>
+    <boot:nav type="pages">
+      <boot:page x-bind-load="loadPage">
+      something dynamic, changes with loadPage
+      </boot:page>
+      <boot:page>
+      second page, dont know yet how to template dynamic content
+      </boot:page>
+    </boot>
+
+#### parameters
+
+nav type==tab
+align left|right
+
+tab_pane [title,header]
+name: use for consistent naming and accessing link later
+disabled: bool
+
+link
+disabled: bool
+header: bool
+
+nav type==form, search
+align left|right
+
+nav type==form, search
+
+nav type==pages
+
+page
+name: use for consistent naming and accessing link later
+disabled: bool
+
+
 
 ## MIT License
 Copyright (c) 2011 by Nate Smith and Brian Noguchi

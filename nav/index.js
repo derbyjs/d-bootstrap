@@ -2,19 +2,28 @@ exports.init = function(model) {
   var nav = this.nav = model.at('nav')
     , current = this.current = model.at('current')
     , type = this.type = model.get('type')
+    , brand = this.brand = model.get('brand')
 
   this.on('init:child', function(child, type) {
-    if (type == 'lib:tab_content') {
+    if (type == 'lib:tab_pane') {
       var childModel = child.model
         , name = childModel.get('name') || nav.get('length') || 0
         , title = childModel.get('title')
-      nav.push({name: name, title: title, model: childModel})
+        , header = childModel.get('header')
+      nav.push({name: name, title: title, header: header, model: childModel})
       this.select()
-    } else if (type == 'lib:pill') {
+    } else if (type == 'lib:link') {
       var childModel = child.model
         , name = childModel.get('name') || nav.get('length') || 0
-        , state = childModel.get('state')
-      nav.push({name: name, title: title, state: state, model: childModel})
+        , disabled = childModel.get('disabled')
+        , header = childModel.get('header')
+      nav.push({name: name, header: header, disabled: disabled, model: childModel})
+    } else if (type == 'lib:page') {
+      var childModel = child.model
+        , name = childModel.get('name') || nav.get('length') || 0
+        , disabled = childModel.get('disabled')
+        , header = childModel.get('header')
+      nav.push({name: name, header: header, disabled: disabled, model: childModel})
     } else {
       return;
     }
@@ -32,11 +41,14 @@ exports.init = function(model) {
 }
 
 exports.select = function(name) {
-  if (name == null) name = this.current.get()
-  if (name == null) name = this.nav.get('0.name')
-  this.current.set(name)
+  if (name == null) name = this.current.get();
+  if (name == null) name = this.nav.get('0.name');
+  this.current.set(name);
 }
 
 exports._clickNav = function(e, el) {
-  this.select(this.model.at(el).get('name'))
+  this.select(this.model.at(el).get('name'));
+}
+exports.clickBrand = function(e, el) {
+  console.log('[dev] branding without connected callback');
 }
