@@ -99,6 +99,7 @@ In your view:
     <boot:media_list>
       <boot:media_item data_src="some.media" heading="heading">descriptive content</boot:media_item>
     </boot:media_list>
+    <boot:well type="large">well content</boot:well>
 
 #### parameters
 
