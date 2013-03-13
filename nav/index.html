@@ -1,82 +1,85 @@
 <!-- public: -->
 <nav: nonvoid>
-  {if equal(:self.type,'tabs')}
-    {if :self.align}
-    {if equal(:self.align,'left')}
-    <div class="tabbable tabs-left">
-    {/}
-    {if equal(:self.align,'right')}
-    <div class="tabbable tabs-right">
-    {/}
-    {/}
-      <ul class="nav nav-tabs">
-        {#each :self.nav}
-          <li class="{#if equal(.name, :self.current)}active{/}">
-            <a x-bind="click: _clickNav">{.title}</a>
-          </li>
+  <!--<pre>{:self.nav}</pre>-->
+  <!--[type:{:self.type}]-->
+  {#with :self}
+    <pre>{.nav}</pre>
+    {#if equal(:self.type,'tabs')}
+      <pre>fill[{:self.nav}]broken scope when empty</pre>
+      {#if :self.align}
+        {#if equal(:self.align,'left')}
+        <div class="tabbable tabs-left">
         {/}
-      </ul>
-      <div class="tab-content">
-        {{@content}}
-      </div>
-    {if :self.align}
-    </div>
-    {/}
-  {/}
-  {if equal(:self.type,'pills')}
-  <ul class="nav nav-pills{if equal(:self.stackable} nav-stackable{/}">
-    {#each :self.nav}
-      <link:/>
-    {/}
-  </ul>
-  {/}
-  {if equal(:self.type,'list')}
-  <ul class="nav nav-list{if equal(:self.stackable} nav-stackable{/}">
-    {#each :self.nav}
-      <link:/>
-    {/}
-  </ul>
-  {/}
-  {if equal(:self.type,'basic')}
-  <div class="navbar{#if :self.fixed} navbar-fixed-{:self.fixed}{/}{#if :self.static} navbar-static-{:self.fixed}{/}{#if :self.inverted} navbar-inverted{/}">
-    <div class="navbar-inner">
-      {if :self.brand}<brand:/>{/}
-      <ul class="nav">
-        {#each :self.nav}
-          <link:/>
+        {#if equal(:self.align,'right')}
+        <div class="tabbable tabs-right">
         {/}
-      </ul>
-    </div>
-  </div>
-  {/}
-  {if equal(:self.type,'form')}
-  <form class="navbar-form{if(:self.align)} pull-{:self.align}{/}">
-    {{@content}}
-  </form>
-  {/}
-  {if equal(:self.type,'search')}
-    <form class="navbar-search{if(:self.align)} pull-{:self.align}{/}">
-      <input type="text" class="search-query" placeholder="{:self.placeholder}"/>
-    </form>
-  {/}
-  {if equal(:self.type,'breadcrumb')}
-    <ul class="breadcrumb">{{@content}}</ul>
-  {/}
-  {if equal(:self.type,'page')}
-  <div class="row">
-    {{@content}}
-  </div>
-  <div class="pagination">
-    <ul>
-      <li x-bind="click: _clickNav" class="disabled"><a href="#">&laquo;</a></li>
-      {#each :self.nav}
-        <page:/>
       {/}
-      <li x-bind="click: _clickNav" class="disabled"><a href="#">&raquo;</a></li>
+        <ul class="nav nav-tabs{#if :self.class} {:self.class}{/}">
+          {#each :self.nav}
+            <li class="{#if equal(.name, :self.current)}active{/}">
+              <a x-bind="click: _clickNav">{.title}</a>
+            </li>
+          {/}
+        </ul>
+        <div class="tab-content">
+          {{@content}}
+        </div>
+      {#if :self.align}
+      </div>
+      {/}
+    {/}
+    {#if equal(:self.type,'pills')}
+    <ul class="nav nav-pills{#if :self.stackable} nav-stackable{/}{#if :self.class} {:self.class}{/}">
+      {#each :self.nav}
+        <link:/>
+      {/}
     </ul>
-  </div>
-  {/}
-
+    {/}
+    {#if equal(:self.type,'list')}
+    <ul class="nav nav-list{#if :self.stackable} nav-stackable{/}{#if :self.class} {:self.class}{/}">
+      {{@content}}
+    </ul>
+    {/}
+    {#if equal(:self.type,'basic')}
+    <div class="navbar{#if :self.fixed} navbar-fixed-{:self.fixed}{/}{#if :self.static} navbar-static-{:self.fixed}{/}{#if :self.inverted} navbar-inverted{/}{#if :self.class} {:self.class}{/}">
+      <div class="navbar-inner">
+        {#if :self.brand}<brand:/>{/}
+        <ul class="nav">
+          {#each :self.nav}
+            <link:/>
+          {/}
+        </ul>
+      </div>
+    </div>
+    {/}
+    {#if equal(:self.type,'form')}
+    <form class="navbar-form{#if(:self.align)} pull-{:self.align}{/}{#if :self.class} {:self.class}{/}">
+      {{@content}}
+    </form>
+    {/}
+    {#if equal(:self.type,'search')}
+      <form class="navbar-search{#if(:self.align)} pull-{:self.align}{/}{#if :self.class} {:self.class}{/}">
+        <input type="text" class="search-query" placeholder="{:self.placeholder}"/>
+      </form>
+    {/}
+    {#if equal(:self.type,'breadcrumb')}
+      <ul class="breadcrumb{#if :self.class} {:self.class}{/}">{{@content}}</ul>
+    {/}
+    {#if equal(:self.type,'page')}
+    <div class="row">
+      {{@content}}
+    </div>
+    <div class="pagination{#if :self.class} {:self.class}{/}">
+      <ul>
+        <li x-bind="click: _clickNav" class="disabled"><a href="#">&laquo;</a></li>
+        {#each :self.nav}
+          <page:/>
+        {/}
+        <li x-bind="click: _clickNav" class="disabled"><a href="#">&raquo;</a></li>
+      </ul>
+    </div>
+    {/}
+  {/}<!--with-->
 
 
 <!-- public: -->
@@ -89,16 +92,16 @@
 <!-- lists -->
 <!-- public: -->
 <link: nonvoid>
-<li class="{#if equal(.name, :self.current)} active{/}{# if(.disabled)} disabled{/}{# if(.header)} nav-header{/}">
+<li class="{#if equal(.name, :self.current)} active{/}{#if equal(:self.disabled,'true')} disabled{/}{#if equal(:self.header,'true')} nav-header{/}{#if :self.class} {:self.class}{/}">
   <a x-bind="click: _clickNav">{{@content}}</a>
 </li>
 
 <!-- public: -->
 <link_header: nonvoid>
-<li class="nav-header">{{@content}}</li>
+<li class="nav-header{#if :self.class} {:self.class}{/}">{{@content}}</li>
 
-<link_divider: nonvoid>
-<li class="divider">{{@content}}</li>
+<link_divider:>
+<li class="divider{#if :self.class} {:self.class}{/}">{{@content}}</li>
 
 <brand: nonvoid>
-<a class="brand" x-bind="click: clickBrand">{{@content}}</a>
+<a class="brand{#if :self.class} {:self.class}{/}" x-bind="click: clickBrand">{{@content}}</a>

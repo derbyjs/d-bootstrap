@@ -4,14 +4,50 @@
 <Header:>
 	<ui:connectionAlert>
 
+  <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
 <Body:>
 source: http://twitter.github.com/bootstrap/components.html
 received at 2013-03
 
+<div class="container">
 
-<        <!-- Dropdowns
-        ================================================== -->
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <boot:nav type="list" class="bs-docs-sidenav">
+        <boot:link name="dropdowns" x-bind="click: scrollToSection"><i class="icon-chevron-right"></i> Dropdowns</boot:link>
+        <boot:link name="buttonGroups"><i class="icon-chevron-right"></i> Button groups</boot:link>
+        <boot:link name="buttonDropdowns"><i class="icon-chevron-right"></i> Button dropdowns</boot:link>
+        <boot:link name="navs"><i class="icon-chevron-right"></i> Navs</boot:link>
+        <boot:link name="navbar"><i class="icon-chevron-right"></i> Navbar</boot:link>
+
+
+        <boot:link name="breadcrumbs"><i class="icon-chevron-right"></i> Breadcrumbs</boot:link>
+        <boot:link name="pagination"><i class="icon-chevron-right"></i> Pagination</boot:link>
+        <boot:link name="labels-badges"><i class="icon-chevron-right"></i> Labels and bades</boot:link>
+
+        <boot:link name="typography"><i class="icon-chevron-right"></i> Typography</boot:link>
+        <boot:link name="thumbnails"><i class="icon-chevron-right"></i> Thumbnails</boot:link>
+        <boot:link name="alerts"><i class="icon-chevron-right"></i> Alerts</boot:link>
+
+        <boot:link name="progress"><i class="icon-chevron-right"></i> Progress bars</boot:link>
+        <boot:link name="media"><i class="icon-chevron-right"></i> Media Object</boot:link>
+        <boot:link name="misc"><i class="icon-chevron-right"></i> Misc</boot:link>
+        </boot:nav>
+      </div>
+      <div class="span9">
+
+        <!-- Dropdowns
+        ================================================== - - >
+
         <section id="dropdowns">
+        <!--
           <div class="page-header">
             <h1>Dropdown menus</h1>
           </div>
@@ -172,9 +208,10 @@ received at 2013-03
 
 
 
-
-        <!-- Button Groups
-        ================================================== -->
+        <!- - - ->
+        <!- - Button Groups
+        ================================================== - ->
+        <! - - - ->
         <section id="buttonGroups">
           <div class="page-header">
             <h1>Button groups</h1>
@@ -256,9 +293,9 @@ received at 2013-03
         </section>
 
 
-
-        <!-- Split button dropdowns
-        ================================================== -->
+        <!- - - ->
+        <!- - Split button dropdowns
+        ================================================== - ->
         <section id="buttonDropdowns">
           <div class="page-header">
             <h1>Button dropdown menus</h1>
@@ -278,7 +315,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -288,7 +325,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Danger <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -298,7 +335,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - - >
               <div class="btn-group">
                 <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Warning <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -308,7 +345,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Success <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -318,7 +355,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Info <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -328,7 +365,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">Inverse <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -338,8 +375,8 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /btn-toolbar -->
+              </div><!- - /btn-group - ->
+            </div><!- - /btn-toolbar - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="btn-group"&gt;
@@ -366,7 +403,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">Small button <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -376,7 +413,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Mini button <span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -386,8 +423,8 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /btn-toolbar -->
+              </div><!- - /btn-group - ->
+            </div><!- - /btn-toolbar - ->
           </div>
 
           <h3>Requires JavaScript</h3>
@@ -412,7 +449,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-primary">Action</button>
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -423,7 +460,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-danger">Danger</button>
                 <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -434,7 +471,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-warning">Warning</button>
                 <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -445,7 +482,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-success">Success</button>
                 <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -456,7 +493,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-info">Info</button>
                 <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -467,7 +504,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group">
                 <button class="btn btn-inverse">Inverse</button>
                 <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -478,8 +515,8 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /btn-toolbar -->
+              </div><!- - /btn-group - ->
+            </div><!- - /btn-toolbar - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="btn-group"&gt;
@@ -507,8 +544,8 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /btn-toolbar -->
+              </div><!- - /btn-group - ->
+            </div><!- - /btn-toolbar - ->
             <div class="btn-toolbar">
               <div class="btn-group">
                 <button class="btn btn-small">Small action</button>
@@ -520,8 +557,8 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /btn-toolbar -->
+              </div><!- - /btn-group - ->
+            </div><!- - /btn-toolbar - ->
             <div class="btn-toolbar">
               <div class="btn-group">
                 <button class="btn btn-mini">Mini action</button>
@@ -533,8 +570,8 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /btn-toolbar -->
+              </div><!- - /btn-group - ->
+            </div><!- - /btn-toolbar - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="btn-group"&gt;
@@ -562,7 +599,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
               <div class="btn-group dropup">
                 <button class="btn primary">Right dropup</button>
                 <button class="btn primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -573,7 +610,7 @@ received at 2013-03
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </div><!-- /btn-group -->
+              </div><!- - /btn-group - ->
             </div>
           </div>
 <pre class="prettyprint linenums">
@@ -591,7 +628,7 @@ received at 2013-03
         </section>
 
 
-
+        <!- - -->
         <!-- Nav, Tabs, & Pills
         ================================================== -->
         <section id="navs">
@@ -604,7 +641,14 @@ received at 2013-03
 
           <h3>Basic tabs</h3>
           <p>Take a regular <code>&lt;ul&gt;</code> of links and add <code>.nav-tabs</code>:</p>
+
           <div class="bs-docs-example">
+            <boot:nav type="tabs">
+              <boot:tab_pane title="Home">Home Contents</boot:tab_pane>
+              <boot:tab_pane title="Profile">Profile Contents</boot:tab_pane>
+              <boot:tab_pane title="Messages">Message Contents</boot:tab_pane>
+            </boot:nav>
+            <!--orig-->
             <ul class="nav nav-tabs">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#">Profile</a></li>
@@ -790,7 +834,7 @@ received at 2013-03
                 <li class="divider"></li>
                 <li><a href="#">Help</a></li>
               </ul>
-            </div> <!-- /well -->
+            </div> <!- - /well - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-list"&gt;
@@ -842,7 +886,7 @@ received at 2013-03
                   <p>What up girl, this is Section 3.</p>
                 </div>
               </div>
-            </div> <!-- /tabbable -->
+            </div> <!- - /tabbable - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="tabbable"&gt; &lt;!-- Only required for left/right tabs --&gt;
@@ -889,7 +933,7 @@ received at 2013-03
                 <li><a href="#B" data-toggle="tab">Section 2</a></li>
                 <li><a href="#C" data-toggle="tab">Section 3</a></li>
               </ul>
-            </div> <!-- /tabbable -->
+            </div> <!- - /tabbable - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="tabbable tabs-below"&gt;
@@ -922,7 +966,7 @@ received at 2013-03
                   <p>What up girl, this is Section C.</p>
                 </div>
               </div>
-            </div> <!-- /tabbable -->
+            </div> <!- - /tabbable - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="tabbable tabs-left"&gt;
@@ -955,7 +999,7 @@ received at 2013-03
                   <p>What up girl, this is Section C.</p>
                 </div>
               </div>
-            </div> <!-- /tabbable -->
+            </div> <!- - /tabbable - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="tabbable tabs-right"&gt;
@@ -972,8 +1016,8 @@ received at 2013-03
 
 
 
-        <!-- Navbar
-        ================================================== -->
+        <!- - Navbar
+        ================================================== - ->
         <section id="navbar">
           <div class="page-header">
             <h1>Navbar</h1>
@@ -1254,10 +1298,10 @@ received at 2013-03
                         </ul>
                       </li>
                     </ul>
-                  </div><!-- /.nav-collapse -->
+                  </div><!- - /.nav-collapse - ->
                 </div>
-              </div><!-- /navbar-inner -->
-            </div><!-- /navbar -->
+              </div><!- - /navbar-inner - ->
+            </div><!- - /navbar - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="navbar"&gt;
@@ -1338,10 +1382,10 @@ received at 2013-03
                         </ul>
                       </li>
                     </ul>
-                  </div><!-- /.nav-collapse -->
+                  </div><!- - /.nav-collapse - ->
                 </div>
-              </div><!-- /navbar-inner -->
-            </div><!-- /navbar -->
+              </div><!- - /navbar-inner - ->
+            </div><!- - /navbar - ->
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="navbar navbar-inverse"&gt;
@@ -1353,8 +1397,8 @@ received at 2013-03
 
 
 
-        <!-- Breadcrumbs
-        ================================================== -->
+        <!- - Breadcrumbs
+        ================================================== - ->
         <section id="breadcrumbs">
           <div class="page-header">
             <h1>Breadcrumbs <small></small></h1>
@@ -1388,8 +1432,8 @@ received at 2013-03
 
 
 
-        <!-- Pagination
-        ================================================== -->
+        <!- - Pagination
+        ================================================== - ->
         <section id="pagination">
           <div class="page-header">
             <h1>Pagination <small>Two options for paging through content</small></h1>
@@ -1637,8 +1681,8 @@ received at 2013-03
 
 
 
-        <!-- Labels and badges
-        ================================================== -->
+        <!- - Labels and badges
+        ================================================== - ->
         <section id="labels-badges">
           <div class="page-header">
             <h1>Labels and badges</h1>
@@ -1789,8 +1833,8 @@ received at 2013-03
 
 
 
-        <!-- Typographic components
-        ================================================== -->
+        <!- - Typographic components
+        ================================================== - ->
         <section id="typography">
           <div class="page-header">
             <h1>Typographic components</h1>
@@ -1834,8 +1878,8 @@ received at 2013-03
 
 
 
-        <!-- Thumbnails
-        ================================================== -->
+        <!- - Thumbnails
+        ================================================== - ->
         <section id="thumbnails">
           <div class="page-header">
             <h1>Thumbnails <small>Grids of images, videos, text, and more</small></h1>
@@ -1975,8 +2019,8 @@ received at 2013-03
 
 
 
-        <!-- Alerts
-        ================================================== -->
+        <!- - Alerts
+        ================================================== - ->
         <section id="alerts">
           <div class="page-header">
             <h1>Alerts <small>Styles for success, warning, and error messages</small></h1>
@@ -2078,8 +2122,8 @@ received at 2013-03
 
 
 
-        <!-- Progress bars
-        ================================================== -->
+        <!- - Progress bars
+        ================================================== - ->
         <section id="progress">
           <div class="page-header">
             <h1>Progress bars <small>For loading, redirecting, or action status</small></h1>
@@ -2224,8 +2268,8 @@ received at 2013-03
 
 
 
-        <!-- Media object
-        ================================================== -->
+        <!- - Media object
+        ================================================== - ->
         <section id="media">
           <div class="page-header">
             <h1>Media object</h1>
@@ -2295,7 +2339,7 @@ received at 2013-03
                 <div class="media-body">
                   <h4 class="media-heading">Media heading</h4>
                   <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-                  <!-- Nested media object -->
+                  <!- - Nested media object - ->
                   <div class="media">
                     <a class="pull-left" href="#">
                       <img class="media-object" data-src="holder.js/64x64">
@@ -2303,7 +2347,7 @@ received at 2013-03
                     <div class="media-body">
                       <h4 class="media-heading">Nested media heading</h4>
                       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                      <!-- Nested media object -->
+                      <!- - Nested media object - ->
                       <div class="media">
                         <a class="pull-left" href="#">
                           <img class="media-object" data-src="holder.js/64x64">
@@ -2315,7 +2359,7 @@ received at 2013-03
                       </div>
                     </div>
                   </div>
-                  <!-- Nested media object -->
+                  <!- - Nested media object - ->
                   <div class="media">
                     <a class="pull-left" href="#">
                       <img class="media-object" data-src="holder.js/64x64">
@@ -2363,8 +2407,9 @@ received at 2013-03
 
 
 
-        <!-- Miscellaneous
-        ================================================== -->
+        <!- - Miscellaneous
+        ================================================== - ->
+        <!- - - ->
         <section id="misc">
           <div class="page-header">
             <h1>Miscellaneous <small>Lightweight utility components</small></h1>
@@ -2412,7 +2457,7 @@ received at 2013-03
           </div>
           <pre class="prettyprint linenums">&lt;button class="close"&gt;&amp;times;&lt;/button&gt;</pre>
           <p>iOS devices require an <code>href="#"</code> for click events if you would rather use an anchor.</p>
-          <pre class="prettyprint linenums">&lt;a class="close" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
+          <pre class="prettyprint linenums">&lt;a class="close" href="#"&gt;&amp;times;&lt;/a&gt/pre>
 
           <h2>Helper classes</h2>
           <p>Simple, focused classes for small display or behavior tweaks.</p>
@@ -2479,7 +2524,7 @@ class="clearfix"
   </div>
 
 
-
+    <!- - -->
     <!-- Footer
     ================================================== -->
     <footer class="footer">
@@ -2500,45 +2545,8 @@ class="clearfix"
 
 
     <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
-    <script src="assets/js/bootstrap-affix.js"></script>
-
-    <script src="assets/js/holder/holder.js"></script>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
-
-    <script src="assets/js/application.js"></script>
-
-
-    <!-- Analytics
-    ================================================== -->
-    <script>
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-    </script>
-
+    ================================================== - ->
+    <!- - Placed at the end of the document so the pages load faster - ->
+    <!- - should not be done with the derby framework -->
   </body>
 </html>

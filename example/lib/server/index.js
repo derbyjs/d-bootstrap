@@ -10,6 +10,7 @@ var expressApp = express(),
     server = http.createServer(expressApp)
 
 var store = derby.createStore({listen: server});
+
 module.exports = server;
 
 var ONE_YEAR = 1000 * 60 * 60 * 24 * 365
