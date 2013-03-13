@@ -51,6 +51,7 @@ In `views/app/index.html`:
 
 ###Nav
 
+
 In your view:
 <!-- general navigation -->
     <boot:nav current={currentTab} type="tabs">
