@@ -1,11 +1,8 @@
 <!-- public: -->
 <nav: nonvoid>
   <!--<pre>{:self.nav}</pre>-->
-  <!--[type:{:self.type}]-->
-  {#with :self}
-    <pre>{.nav}</pre>
+    [type:{:self.type}]
     {#if equal(:self.type,'tabs')}
-      <pre>fill[{:self.nav}]broken scope when empty</pre>
       {#if :self.align}
         {#if equal(:self.align,'left')}
         <div class="tabbable tabs-left">
@@ -20,39 +17,35 @@
               <a x-bind="click: _clickNav">{.title}</a>
             </li>
           {/}
+          <li style="display:none">needed otherwise each is not processed</li>
         </ul>
+
         <div class="tab-content">
           {{@content}}
         </div>
       {#if :self.align}
       </div>
       {/}
-    {/}
-    {#if equal(:self.type,'pills')}
-    <ul class="nav nav-pills{#if :self.stackable} nav-stackable{/}{#if :self.class} {:self.class}{/}">
-      {#each :self.nav}
-        <link:/>
-      {/}
-    </ul>
-    {/}
-    {#if equal(:self.type,'list')}
+    {else if equal(:self.type,'pills')}
+      <ul class="nav nav-pills{#if :self.stackable} nav-stackable{/}{#if :self.class} {:self.class}{/}">
+        {{@content}}
+      </ul>
+    {else if equal(:self.type,'list')}
     <ul class="nav nav-list{#if :self.stackable} nav-stackable{/}{#if :self.class} {:self.class}{/}">
       {{@content}}
     </ul>
-    {/}
-    {#if equal(:self.type,'basic')}
+    {else if equal(:self.type,'basic')}
     <div class="navbar{#if :self.fixed} navbar-fixed-{:self.fixed}{/}{#if :self.static} navbar-static-{:self.fixed}{/}{#if :self.inverted} navbar-inverted{/}{#if :self.class} {:self.class}{/}">
       <div class="navbar-inner">
         {#if :self.brand}<brand:/>{/}
         <ul class="nav">
           {#each :self.nav}
-            <link:/>
+          nav
           {/}
         </ul>
       </div>
     </div>
-    {/}
-    {#if equal(:self.type,'form')}
+    {else if equal(:self.type,'form')}
     <form class="navbar-form{#if(:self.align)} pull-{:self.align}{/}{#if :self.class} {:self.class}{/}">
       {{@content}}
     </form>
@@ -79,22 +72,18 @@
       </ul>
     </div>
     {/}
-  {/}<!--with-->
 
 
 <!-- public: -->
 <tab_pane: nonvoid>
-  <div class="tab-pane {#if :self.active}active{/}">
+  <div class="tab-pane{#if :self.active} active{/}">
     {{@content}}
   </div>
 
-<!-- pills -->
-<!-- lists -->
-<!-- public: -->
 <link: nonvoid>
-<li class="{#if equal(.name, :self.current)} active{/}{#if equal(:self.disabled,'true')} disabled{/}{#if equal(:self.header,'true')} nav-header{/}{#if :self.class} {:self.class}{/}">
-  <a x-bind="click: _clickNav">{{@content}}</a>
-</li>
+  <li class="{#if equal(.name, :self.current)} active{/}{#if equal(:self.disabled,'true')} disabled{/}{#if equal(:self.header,'true')} nav-header{/}{#if :self.class} {:self.class}{/}">
+    <a href="#">{{@content}}{:self.disabled}</a>
+  </li>
 
 <!-- public: -->
 <link_header: nonvoid>

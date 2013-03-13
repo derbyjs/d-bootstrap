@@ -648,12 +648,6 @@ received at 2013-03
               <boot:tab_pane title="Profile">Profile Contents</boot:tab_pane>
               <boot:tab_pane title="Messages">Message Contents</boot:tab_pane>
             </boot:nav>
-            <!--orig-->
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Messages</a></li>
-            </ul>
           </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-tabs"&gt;
@@ -668,11 +662,12 @@ received at 2013-03
           <h3>Basic pills</h3>
           <p>Take that same HTML, but use <code>.nav-pills</code> instead:</p>
           <div class="bs-docs-example">
-            <ul class="nav nav-pills">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Messages</a></li>
-            </ul>
+            <boot:nav type="pills">
+              <boot:link name="home" disabled="true">PHome</boot:link>
+              <boot:link_divider/>
+              <boot:link name="profile">PProfile</boot:link>
+              <boot:link name="messages">PMessages</boot:link>
+            </boot:nav>
           </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-pills"&gt;
@@ -687,7 +682,12 @@ received at 2013-03
           <h3>Disabled state</h3>
           <p>For any nav component (tabs, pills, or list), add <code>.disabled</code> for <strong>gray links and no hover effects</strong>. Links will remain clickable, however, unless you remove the <code>href</code> attribute. Alternatively, you could implement custom JavaScript to prevent those clicks.</p>
           <div class="bs-docs-example">
-            <ul class="nav nav-pills">
+            <boot:nav type="pills">
+              <boot:link name="home" disabled="true">PHome</boot:link>
+              <boot:link_divider/>
+              <boot:link name="profile">PProfile</boot:link>
+              <boot:link name="messages" disabled="true">PMessages</boot:link>
+            </boot:nav>            <ul class="nav nav-pills">
               <li><a href="#">Clickable link</a></li>
               <li><a href="#">Clickable link</a></li>
               <li class="disabled"><a href="#">Disabled link</a></li>
