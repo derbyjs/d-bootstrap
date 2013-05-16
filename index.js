@@ -1,7 +1,6 @@
 var lessRoot = __dirname + '/node_modules/bootstrap/less/'
   , config = {
       ns: 'boot'
-    , filename: __filename
     , scripts: {
         dropdown: require('./dropdown')
       , option: require('./dropdown/option')
@@ -10,6 +9,8 @@ var lessRoot = __dirname + '/node_modules/bootstrap/less/'
       , tab: {}
       }
     }
+
+config.filename = __filename
 
 module.exports = boot
 boot.decorate = 'derby'

@@ -31,7 +31,7 @@ exports.init = function(model) {
 
   updateValue(model, model.get('value'))
 
-  model.on('set', 'value', function(value) {
+  model.on('change', 'value', function(value) {
     updateValue(model, value, true)
   })
 }
@@ -61,7 +61,7 @@ function updateValue(model, value, setValue) {
   for (i = 0, len = options.length; i < len; i++) {
     option = options[i]
     if (optionValue(option) !== value) continue
-    model.set('label', option.text, null)
+    model.set('label', option.text)
     return
   }
   option = options[0]
@@ -69,5 +69,5 @@ function updateValue(model, value, setValue) {
   if (setValue || value === void 0) {
     model.set('value', value)
   }
-  model.set('label', option.text, null)
+  model.set('label', option.text)
 }
