@@ -7,10 +7,10 @@ var lessRoot = __dirname + '/node_modules/bootstrap/less/'
       , option: require('./dropdown/option')
       , modal: require('./modal')
       , nav: require('./nav')
-      , tab_pane: {}
       , link: {}
       , link_divider: {}
       , link_header: {}
+      , tab_pane: {}
       }
     }
 

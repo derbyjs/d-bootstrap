@@ -1,0 +1,25 @@
+<!-- public: -->
+<media: nonvoid>
+<div class="media">
+  <media_item:/>
+</div>
+
+<media_list: nonvoid>
+<ul class="media-list">
+  {#each :self.items}
+  <li class="media">
+    <media_item:/>
+  </li>
+  {/}
+</ul>
+
+
+<!-- private -->
+<media_item: nonvoid>
+  <a class="pull-left" x-bind="click: _clickMedia">
+    <img class="media-object" data-src="{:self.data_src}">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">{:self.heading}</h4>
+    {{@content}}
+  </div>
