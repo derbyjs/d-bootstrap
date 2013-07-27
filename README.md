@@ -88,6 +88,7 @@ In your view:
     <boot:page_header headline="headline" subtext="subtext"/>
     <boot:alert>message</boot>
     <boot:alert type="info">something readworthy</boot:alert>
+    <boot:progress value="{:model.value}"/>
 
 #### parameters
 
@@ -115,6 +116,9 @@ disabled: bool
 
 alert
 type: [|error|success|info] empty=warning
+
+progress
+type: [|striped|striped active]
 
 
 
