@@ -2,7 +2,7 @@ var fs = require('fs')
 , path = require('path')
 , exists = (fs && fs.existsSync) || (path && path.existsSync) || function (p) { return false; }
 , lessRoot = exists(__dirname + '/node_modules/bootstrap') ?
-  __dirname + '/node_modules/bootstrap'
+  __dirname + '/node_modules/bootstrap/less/'
 : __dirname + '/internal_bootstrap/less/'
 , config = {
   ns: 'boot'
