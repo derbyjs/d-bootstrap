@@ -1,3 +1,4 @@
+var fs = require('fs')
 var config = {
   ns: 'boot'
 , filename: __filename
@@ -12,7 +13,11 @@ var config = {
 
 module.exports = function(app, options) {
   var outConfig = Object.create(config)
-  var lessRoot = __dirname + '/node_modules/bootstrap/less/'
+  var info = fs. fs.statSync(__dirname + '/node_modules/bootstrap')
+  if (info && info.isDirectory())
+    lessRoot = __dirname + '/node_modules/bootstrap'
+  else
+    lessRoot = __dirname + '/internal_bootstrap/less/'
 
   var outStyles
   if (options && 'styles' in options) {
