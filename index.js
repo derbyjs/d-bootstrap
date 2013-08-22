@@ -3,7 +3,6 @@ var config = {
 , filename: __filename
 , scripts: {
     dropdown: require('./dropdown')
-  , option: require('./dropdown/option')
   , modal: require('./modal')
   , tabs: require('./tabs')
   , tab: {}
