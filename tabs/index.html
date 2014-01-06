@@ -1,17 +1,15 @@
-<tabs: nonvoid>
+<index: arrays="pane/panes" element="tabs">
   <ul class="nav nav-tabs">
-    {#each :self.tabs}
-      <li class="{#if equal(.name, :self.current)}active{/}">
-        <a x-bind="click: _clickTab">{.title}</a>
+    {{each @panes as #pane, #i}}
+      <li class="{{if selectedIndex === #i}}active{{/if}}">
+        <a on="click: select(#i)">{{#pane.title}}</a>
       </li>
-    {/}
+    {{/each}}
   </ul>
-
   <div class="tab-content">
-    {{@content}}
-  </div>
-
-<tab: nonvoid>
-  <div class="tab-pane {#if :self.active}active{/}">
-    {{@content}}
+    {{each @panes as #pane, #i}}
+      <div class="tab-pane{{if selectedIndex === #i}} active{{/if}}">
+        {{#pane.content}}
+      </div>
+    {{/each}}
   </div>

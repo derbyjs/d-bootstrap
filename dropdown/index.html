@@ -1,18 +1,18 @@
-<dropdown: nonvoid>
-  <!-- a :self path alias is automatically created per component -->
-  <div class="btn-group dropdown {#if :self.open}open{/}">
-    <!-- x-as can be used to pass a reference to an element to the script -->
-    <a x-as="toggle" x-bind="click: toggle" class="btn dropdown-toggle">
-      <span>{:self.label}</span> <span class="caret"></span>
-    </a>
-    <menu x-as="menu" class="dropdown-menu">
-      {#each @options}
-        {{#if divider}}
-          <li class="divider"></li>
-        {{else}}
-          <li><a x-bind="click: _clickOption">{{text}}</a></li>
-        {{/}}
-      {/}
-      {{@content}}
-    </menu>
+<index: arrays="option/options" element="dropdown">
+  <div class="dropdown{{if open}} open{{/if}}">
+    <button
+      as="toggleButton"
+      on="click: toggle()"
+      id="dropdown-toggle{{id}}"
+      class="btn {{buttonClass || 'btn-default'}} dropdown-toggle"
+      type="button">
+      {{label(value)}} <span class="caret"></span>
+    </button>
+    <ul as="menu" class="dropdown-menu {{menuClass}}" role="menu" aria-labelledby="dropdown-toggle{{id}}">
+      {{each @options}}
+        <li role="presentation" class="{{this.class}}">
+          <a on="click: select(this)" role="menuitem" tabindex="-1">{{this.content}}</a>
+        </li>
+      {{/each}}
+    </ul>
   </div>

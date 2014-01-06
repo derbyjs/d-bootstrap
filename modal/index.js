@@ -1,23 +1,33 @@
-exports.create = function(model, dom) {
-  var self = this;
+module.exports = Modal;
+function Modal() {}
+Modal.prototype.view = __dirname;
 
-  dom.addListener(document, 'keydown', function(e) {
+Modal.prototype.create = function(model, dom) {
+  var modal = this;
+  dom.on(document, 'keydown', function(e) {
+    if (!model.get('show')) return;
     if (e.keyCode === 27) {  // Escape
-      self.close('escape')
+      modal.hide('escape');
     }
-  })
-}
+  });
+};
 
-exports.show = function() {
-  this.model.set('show', true)
-}
+Modal.prototype.show = function() {
+  var model = this.model;
+  this.emitDelayable('show', function() {
+    model.set('show', true);
+    setTimeout(function() { 
+      model.set('fadeIn', true);
+    }, 0);
+  });
+};
 
-exports.close = function(action) {
-  var cancelled = this.emitCancellable('close', action)
-  if (!cancelled) this.model.set('show', false)
-}
-
-exports._click = function(e) {
-  var action = e.target.getAttribute('data-action')
-  if (action) this.close(action)
-}
+Modal.prototype.hide = function(action) {
+  var cancelled = this.emitCancellable('hide', action);
+  if (cancelled) return;
+  var model = this.model;
+  model.set('fadeIn', false);
+  setTimeout(function() {
+    model.set('show', false);
+  }, 300);
+};
