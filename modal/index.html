@@ -1,10 +1,10 @@
 <index: arrays="action/actions" attributes="title" element="modal">
   <div class="modal fade{{if faded}} in{{/if}}" style="{{if show}}display: block{{/if}}">
-    <div on="click: hide('backdrop')" class="modal-backdrop fade{{if faded}} in{{/if}}"></div>
+    <div on-click="hide('backdrop')" class="modal-backdrop fade{{if faded}} in{{/if}}"></div>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button on="click: hide('close')" type="button" class="close" aria-hidden="true">&times;</button>
+          <button on-click="hide('close')" type="button" class="close" aria-hidden="true">&times;</button>
           <h4 class="modal-title">{{@title}}</h4>
         </div>
         <div class="modal-body">
@@ -13,7 +13,7 @@
         <div class="modal-footer">
           {{each @actions}}
             <button
-              on="click: hide(this.value || this.content)"
+              on-click="hide(this.value || this.content)"
               type="button"
               class="btn {{this.class || 'btn-default'}}">
               {{this.content}}
