@@ -17,7 +17,7 @@ Modal.prototype.show = function() {
   this.emitDelayable('show', function() {
     model.set('show', true);
     setTimeout(function() { 
-      model.set('fadeIn', true);
+      model.set('faded', true);
     }, 0);
   });
 };
@@ -26,7 +26,7 @@ Modal.prototype.hide = function(action) {
   var cancelled = this.emitCancellable('hide', action);
   if (cancelled) return;
   var model = this.model;
-  model.set('fadeIn', false);
+  model.set('faded', false);
   setTimeout(function() {
     model.set('show', false);
   }, 300);
