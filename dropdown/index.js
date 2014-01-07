@@ -5,7 +5,7 @@ Dropdown.prototype.view = __dirname;
 Dropdown.prototype.create = function(model, dom) {
   // Close on click outside of the dropdown
   var dropdown = this;
-  dom.on(document, 'click', function(e) {
+  dom.on('click', function(e) {
     if (dropdown.toggleButton.contains(e.target)) return;
     if (dropdown.menu.contains(e.target)) return;
     model.set('open', false);

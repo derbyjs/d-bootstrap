@@ -4,7 +4,7 @@ Modal.prototype.view = __dirname;
 
 Modal.prototype.create = function(model, dom) {
   var modal = this;
-  dom.on(document, 'keydown', function(e) {
+  dom.on('keydown', function(e) {
     if (!model.get('show')) return;
     if (e.keyCode === 27) {  // Escape
       modal.hide('escape');
