@@ -3,7 +3,7 @@
 A Derby component library based on Twitter Bootstrap.
 
 ## MIT License
-Copyright (c) 2011 by Nate Smith and Brian Noguchi
+Copyright (c) 2011 by Nate Smith
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
