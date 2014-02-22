@@ -2,6 +2,10 @@
 
 A Derby component library based on Twitter Bootstrap.
 
+# Contributors wanted!
+
+This project should implement each of the [Bootstrap JavaScript plugins](http://getbootstrap.com/javascript/) as Derby components.
+
 ## MIT License
 Copyright (c) 2011 by Nate Smith
 
