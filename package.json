@@ -8,7 +8,9 @@
     "url": "git://github.com/codeparty/d-bootstrap.git"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "bootstrap": "git://github.com/twbs/bootstrap.git#v3.0.3"
+  },
   "optionalDependencies": {},
   "engines": {}
 }
