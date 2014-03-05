@@ -11,6 +11,7 @@
   "devDependencies": {
     "bootstrap": "https://github.com/twbs/bootstrap/archive/v3.0.3.tar.gz"
   },
+  "bundledDependencies": ['bootstrap'],
   "optionalDependencies": {},
   "engines": {}
 }
