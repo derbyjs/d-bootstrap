@@ -5,7 +5,7 @@ function Alert() {}
 Alert.prototype.view = __dirname;
 
 Alert.prototype.create = function(model, dom) {
-  this.show();
+  this.model.setNull('hidden', false);
 };
 
 Alert.prototype.show = function(model, dom) {
