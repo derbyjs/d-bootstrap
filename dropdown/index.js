@@ -10,6 +10,10 @@ Dropdown.prototype.create = function(model, dom) {
     if (dropdown.menu.contains(e.target)) return;
     model.set('open', false);
   });
+  // Watch the change of the options and update the selected element if needed
+  model.on('change', 'options', function() {
+    model.set('value', model.get('value'));
+  });
 };
 
 Dropdown.prototype.toggle = function() {
