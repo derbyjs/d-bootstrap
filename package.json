@@ -1,7 +1,7 @@
 {
   "name": "d-bootstrap",
   "description": "A Derby component library based on Twitter Bootstrap.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://derbyjs.com/",
   "repository": {
     "type": "git",
