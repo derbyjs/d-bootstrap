@@ -6,7 +6,7 @@
         {{/}}
         {{each @options as #option}}
           <li role="presentation" class="{{#option.class}}">
-	          {{if #option.content}}
+            {{if #option.content}}
               <a on-click="select(#option)" role="menuitem" tabindex="-1">{{#option.content}}</a>
             {{/}}
           </li>
