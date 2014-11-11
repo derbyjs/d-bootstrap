@@ -12,7 +12,7 @@ ContextMenu.prototype.create = function(model, dom) {
 };
 
 ContextMenu.prototype.open = function(e) {
-  if(!e) throw new Error('You must provide a click event when opening the context menu.');
+  if(!e) throw new Error('You must provide a click event as the first argument to open() when opening the context menu.');
 
   e.preventDefault();
   var contextMenu = this;
@@ -20,11 +20,15 @@ ContextMenu.prototype.open = function(e) {
   var x = e.clientX + 'px';
   var y = e.clientY + 'px';
 
-  this.emitDelayable('open', function() {
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift('open');
+  args.push(function() {
     contextMenu.menu.style.top = y;
     contextMenu.menu.style.left = x;
     model.set('open', true);
   });
+
+  this.emitDelayable.apply(this, args);
 };
 
 ContextMenu.prototype.select = function(option) {
