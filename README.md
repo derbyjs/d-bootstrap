@@ -2,6 +2,33 @@
 
 A Derby component library based on Twitter Bootstrap.
 
+## Installation
+
+```
+npm install d-bootstrap
+```
+
+## Usage
+
+To use the component library in a Derby project pass it to `app.use` as usual.
+
+```javascript
+app.use(require('d-bootstrap'));
+```
+
+Twitter Bootstrap is installed via npm dependencies, but one can choose whether or not to have the component load the Bootstrap styles by passing an options object to the component through `app.use`. The object should contain a boolean `loadStyles` which dictates if styles are loaded or not. If no options are provided, the styles are loaded automatically.
+
+```javascript
+// Loads styles
+app.use(require('d-bootstrap')); 
+
+// Loads styles
+app.use(require('d-bootstrap'), {loadStyles: true});
+
+// Does not load styles
+app.use(require('d-bootstrap'), {loadStyles: false});
+```
+
 # Contributors wanted!
 
 This project should implement each of the [Bootstrap JavaScript plugins](http://getbootstrap.com/javascript/) as Derby components.
