@@ -5,12 +5,21 @@
   "homepage": "http://derbyjs.com/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codeparty/d-bootstrap.git"
+    "url": "git://github.com/derbyjs/d-bootstrap.git"
   },
   "dependencies": {
     "bootstrap": "^3.3.1"
   },
   "devDependencies": {},
   "optionalDependencies": {},
-  "engines": {}
+  "engines": {},
+  "bugs": {
+    "url": "https://github.com/derbyjs/d-bootstrap/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
 }
