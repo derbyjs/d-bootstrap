@@ -26,14 +26,14 @@ Dropdown.prototype.select = function(option) {
 };
 
 Dropdown.prototype.label = function(value) {
-  var options = this.model.get('options') || [];
+  var options = this.getAttribute('options') || [];
   for (var i = 0, len = options.length; i < len; i++) {
     var option = options[i];
     if (value === optionValue(option)) {
       return option.content;
     }
   }
-  return this.model.get('prompt') || 'Select';
+  return this.getAttribute('prompt') || 'Select';
 };
 
 function optionValue(option) {
