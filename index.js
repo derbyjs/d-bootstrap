@@ -4,5 +4,8 @@ module.exports = function(app, options) {
   app.component(require('./tabs'));
   app.component(require('./alert'));
   app.component(require('./contextMenu'));
-  if(!options || (options && options.loadStyles)) app.loadStyles(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min');
+  if (!options || (options && options.loadStyles)) {
+    var filename = require.resolve('bootstrap/dist/css/bootstrap.min.css');
+    app.loadStyles(filename);
+  }
 };
