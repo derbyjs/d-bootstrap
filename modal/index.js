@@ -15,8 +15,9 @@ Modal.prototype.create = function(model, dom) {
 Modal.prototype.show = function() {
   var model = this.model;
   this.emitDelayable('show', function() {
+    document.body.classList.add('modal-open');
     model.set('show', true);
-    setTimeout(function() { 
+    setTimeout(function() {
       model.set('faded', true);
     }, 0);
   });
@@ -28,6 +29,7 @@ Modal.prototype.hide = function(action) {
   var model = this.model;
   model.set('faded', false);
   setTimeout(function() {
+    document.body.classList.remove('modal-open');
     model.set('show', false);
   }, 300);
 };
